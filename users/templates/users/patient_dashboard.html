@@ -1,0 +1,19 @@
+{% extends 'users/base.html' %}
+{% block title %}Patient Dashboard{% endblock %}
+{% block content %}
+<h2>Welcome, {{ user.first_name }}!</h2>
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Your Profile</h5>
+        {% if user.profile_picture %}
+            <img src="{{ user.profile_picture.url }}" class="img-thumbnail mb-3" style="max-width: 200px">
+        {% endif %}
+        <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Address:</strong> {{ user.address_line1 }}</p>
+        <p><strong>City:</strong> {{ user.city }}</p>
+        <p><strong>State:</strong> {{ user.state }}</p>
+        <p><strong>Pincode:</strong> {{ user.pincode }}</p>
+    </div>
+</div>
+{% endblock %}
