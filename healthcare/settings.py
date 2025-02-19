@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-n+4-vtzqnoemw*ng6kombx3@3*n5%d&1bnw&c1hgu-m-%$4rtw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "healthcare-auth-1.onrender.com,127.0.0.1,localhost").split(",")
 
 
 # Application definition
