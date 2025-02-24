@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
+from blog.models import Category
 
 def index(request):
     if request.user.is_authenticated:
@@ -28,7 +29,8 @@ def login_redirect(request):
 
 @login_required
 def patient_dashboard(request):
-    return render(request, 'users/patient_dashboard.html')
+    categories = Category.objects.all()
+    return render(request, 'users/patient_dashboard.html', {'categories': categories})
 
 @login_required
 def doctor_dashboard(request):
